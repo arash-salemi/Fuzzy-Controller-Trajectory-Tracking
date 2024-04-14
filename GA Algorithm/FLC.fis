@@ -1,0 +1,79 @@
+[System]
+Name='FLC'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=2
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='PositionError'
+Range=[0 20]
+NumMFs=5
+MF1='VC':'trimf',[0 0 4]
+MF2='C':'trimf',[0 4 8]
+MF3='M':'trimf',[4 8 12]
+MF4='F':'trimf',[8 12 16]
+MF5='VF':'trimf',[12 16 20]
+
+[Input2]
+Name='SteeringError'
+Range=[-5.5 5.5]
+NumMFs=5
+MF1='LB':'trapmf',[-5.5 -5.5 -3 -1.5]
+MF2='LS':'trimf',[-3 -1.5 -0]
+MF3='NT':'trimf',[-1.5 0 1.5]
+MF4='RS':'trimf',[0 1.5 3]
+MF5='RB':'trapmf',[1.5 3 5.5 5.5]
+
+[Output1]
+Name='Speed'
+Range=[0 3]
+NumMFs=5
+MF1='AF':'trimf',[2 2.5 3]
+MF2='A':'trimf',[1.5 2 2.5]
+MF3='M':'trimf',[1 1.5 2]
+MF4='D':'trimf',[0.5 1 1.5]
+MF5='DF':'trimf',[0 0.5 1]
+
+[Output2]
+Name='Steering'
+Range=[-3 3]
+NumMFs=5
+MF1='LB':'trimf',[-3 -2 -1]
+MF2='LS':'trimf',[-2 -1 0]
+MF3='NT':'trimf',[-1 0 1]
+MF4='RS':'trimf',[0 1 2]
+MF5='RB':'trimf',[1 2 3]
+
+[Rules]
+5 1, 1 1 (1) : 1
+4 1, 1 1 (1) : 1
+3 1, 3 1 (1) : 1
+2 1, 4 1 (1) : 1
+1 1, 5 1 (1) : 1
+1 2, 5 2 (1) : 1
+2 2, 4 2 (1) : 1
+3 2, 3 2 (1) : 1
+4 2, 1 2 (1) : 1
+5 2, 1 2 (1) : 1
+1 3, 5 3 (1) : 1
+2 3, 4 3 (1) : 1
+3 3, 3 3 (1) : 1
+4 3, 1 3 (1) : 1
+5 3, 1 3 (1) : 1
+1 4, 5 4 (1) : 1
+2 4, 4 4 (1) : 1
+3 4, 2 4 (1) : 1
+4 4, 1 4 (1) : 1
+5 4, 1 4 (1) : 1
+1 5, 5 5 (1) : 1
+2 5, 4 5 (1) : 1
+3 5, 2 5 (1) : 1
+4 5, 1 5 (1) : 1
+5 5, 1 5 (1) : 1
